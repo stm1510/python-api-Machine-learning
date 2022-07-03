@@ -19,8 +19,10 @@ node{
       sh "make install"    
     }
 
-    stage ('Lint your Dockerfile')  
-  
+    stage ('Lint your Dockerfile'){
+	sh "hadolint Dockerfile"
+   }  
+     
     stage ('Docker Build'){
         sh " docker build -t tawfiq15/api-python:${BUILD_NUMBER} ."
     }
@@ -38,9 +40,14 @@ node{
     stage ('Docker Push'){
         sh "docker push tawfiq15/api-python:${BUILD_NUMBER}"
     }
-  
+  stage("Delete all Built images ){
+	sh "docker rm -f $(docker ps -a -q)"
+	sh"docker rmi -f $(docker images -a -q)
+
+  }
+
   stage ('Build Kubernetes Cluster with EKS'){
-   sh "eks create cluster --region=us-east-1 --name=tawfiqeks --nodes=2 "
+   sh "eksctl create cluster --region=us-east-1 --name=tawfiqeks --nodes=2 "
   }
   
   stage ('Deploy Image to Kubernetes with Kubectl '){
@@ -50,6 +57,10 @@ node{
    #check Nodes status
    sh " kubectl get deploy,rs,svc,pods "
   }
-   
+  
+   stage ('Port Forward of the '){
+    sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
+    sh " kubectl port-forward pod/$(kk8.txt) --address 0.0.0.0 5000:80  
+   } 
  
 }  
