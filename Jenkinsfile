@@ -3,7 +3,7 @@ node{
     def maven_home=tool name:'maven'
     
     stage ('Pull from Github'){
-        git credentialsId: 'githubID', url: 'https://github.com/stm1510/hellowolrd19.git'
+	git branch: 'main', url: 'git@github.com:stm1510/python-api-Machine-learning.git'
     }
 
     stage ('Build Environment'){
