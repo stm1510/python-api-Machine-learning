@@ -56,5 +56,7 @@ node{
    // sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
     
  //  } 
- 
+    stage ('Deploy the Container Image'){
+    sh "kubectl create deploy tawfiq-api --image=tawfiq15/python3-app:latest"
+    }
 }  
