@@ -2,9 +2,9 @@ node{
     
     def maven_home=tool name:'maven'
     
-    stage ('Pull from Github'){
-	git branch: 'main', url: 'https://github.com/stm1510/python-api-Machine-learning.git'
-    }
+    // stage ('Pull from Github'){
+//    git branch: 'main', url: 'https://github.com/stm1510/python-api-Machine-learning.git'
+    
 
     stage ('Build Environment'){
         sh "python3 -m venv venv"
