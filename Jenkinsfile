@@ -15,13 +15,13 @@ node{
     
  
 
-    stage ('Install the neccesary Plugins'){
-      sh "make install"    
-    }
+   // stage ('Install the neccesary Plugins'){
+   //   sh "make install"    
+    
 
-    stage ('Lint your Dockerfile'){
+  //  stage ('Lint your Dockerfile'){
 	sh "hadolint Dockerfile"
-   }  
+     
      
     stage ('Docker Build'){
         sh " docker build -t tawfiq15/api-python:${BUILD_NUMBER} ."
