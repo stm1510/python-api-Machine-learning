@@ -52,9 +52,9 @@ node{
       sh "kubectl get deploy,rs,svc,pods "
   }
   
-   stage ('Port Forward of the '){
-    sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
+  // stage ('Port Forward of the '){
+   // sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
     
-   } 
+ //  } 
  
 }  
