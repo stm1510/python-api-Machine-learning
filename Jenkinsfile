@@ -6,22 +6,22 @@ node{
     git branch: 'main', url: 'https://github.com/stm1510/python-api-Machine-learning.git'
     }
 
-  //  stage ('Build Environment'){
-   //     sh "python3 -m venv venv"
-    
+    stage ('Build Environment'){
+       sh "python3 -m venv venv"
+    }
 
-  //  stage ('Activate The Environmetn'){
-   //   sh "source venv/bin/activate"
-    
+    stage ('Activate The Environmetn'){
+     sh "source venv/bin/activate"
+   }
  
 
-   // stage ('Install the neccesary Plugins'){
-   //   sh "make install"    
-    
+    stage ('Install the neccesary Plugins'){
+      sh "make install"    
+   }
 
-  //  stage ('Lint your Dockerfile'){
-  //	sh "hadolint Dockerfile"
-     
+    stage ('Lint your Dockerfile'){
+  	sh "hadolint Dockerfile"
+   }  
      
     stage ('Docker Build'){
         sh " docker build -t tawfiq15/api-python:${BUILD_NUMBER} ."
@@ -33,9 +33,9 @@ node{
     }
     
 
-//    stage ('Docker Login'){
-  //      sh "docker login"
-    
+    stage ('Docker Login'){
+        sh "docker login"
+    }
 
     stage ('Docker Push'){
         sh "docker push tawfiq15/api-python:${BUILD_NUMBER}"
