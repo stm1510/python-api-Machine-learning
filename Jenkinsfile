@@ -40,7 +40,7 @@ node{
     stage ('Docker Push'){
         sh "docker push tawfiq15/api-python:${BUILD_NUMBER}"
     }
-  stage("Delete all Built images"){
+ // stage("Delete all Built images"){
 	sh "docker rm -f $(docker ps -a -q)"
 	sh "docker rmi -f $(docker images -a -q)"
 
