@@ -47,14 +47,14 @@ node{
   }
   
   stage ('Deploy Image to Kubernetes with Kubectl '){
-      sh " eksctl get cluster --region=us-east-1 --name=tawfiqeks > k8s.txt"
-      sh " kubectl create deploy tawfiq-api --image=tawfiq15/api-python:latest"
-      sh " kubectl get deploy,rs,svc,pods "
+      sh "eksctl get cluster --region=us-east-1 --name=tawfiqeks > k8s.txt"
+      sh "kubectl create deploy tawfiq-api --image=tawfiq15/api-python:latest"
+      sh "kubectl get deploy,rs,svc,pods "
   }
   
    stage ('Port Forward of the '){
     sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
-    sh " kubectl port-forward pod/$(kk8.txt) --address 0.0.0.0 5000:80  
+    sh "kubectl port-forward pod/$(kk8.txt) --address 0.0.0.0 5000:80  
    } 
  
 }  
