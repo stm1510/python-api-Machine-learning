@@ -47,11 +47,9 @@ node{
   }
   
   stage ('Deploy Image to Kubernetes with Kubectl '){
-   #Get info about the created clustes
-   sh " eksctl get cluster --region=us-east-1 --name=tawfiqeks > k8s.txt"
-   sh " kubectl create deploy tawfiq-api --image=tawfiq15/api-python:latest"
-   #check Nodes status
-   sh " kubectl get deploy,rs,svc,pods "
+      sh " eksctl get cluster --region=us-east-1 --name=tawfiqeks > k8s.txt"
+      sh " kubectl create deploy tawfiq-api --image=tawfiq15/api-python:latest"
+      sh " kubectl get deploy,rs,svc,pods "
   }
   
    stage ('Port Forward of the '){
