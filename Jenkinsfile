@@ -42,7 +42,7 @@ node{
     }
   stage("Delete all Built images"){
 	sh "docker rm -f $(docker ps -a -q)"
-	sh"docker rmi -f $(docker images -a -q)
+	sh "docker rmi -f $(docker images -a -q)"
 
   }
 
