@@ -33,9 +33,9 @@ node{
     }
     
 
-    stage ('Docker Login'){
-        sh "docker login"
-    }
+//    stage ('Docker Login'){
+  //      sh "docker login"
+    
 
     stage ('Docker Push'){
         sh "docker push tawfiq15/api-python:${BUILD_NUMBER}"
