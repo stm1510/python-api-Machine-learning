@@ -20,7 +20,7 @@ node{
     
 
   //  stage ('Lint your Dockerfile'){
-	sh "hadolint Dockerfile"
+  //	sh "hadolint Dockerfile"
      
      
     stage ('Docker Build'){
