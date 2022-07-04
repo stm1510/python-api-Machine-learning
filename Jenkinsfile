@@ -40,11 +40,7 @@ node{
     stage ('Docker Push'){
         sh "docker push tawfiq15/api-python:${BUILD_NUMBER}"
     }
- // stage("Delete all Built images"){
-	sh "docker rm -f $(docker ps -a -q)"
-	sh "docker rmi -f $(docker images -a -q)"
-
-  }
+ 
 
   stage ('Build Kubernetes Cluster with EKS'){
    sh "eksctl create cluster --region=us-east-1 --name=tawfiqeks --nodes=2 "
