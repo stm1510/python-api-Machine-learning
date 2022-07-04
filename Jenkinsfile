@@ -54,7 +54,7 @@ node{
   
    stage ('Port Forward of the '){
     sh "kubectl get pods | grep  "Running" | cut -d " " -f 1 > kk8.txt"   
-    sh "kubectl port-forward pod/$(cat kk8.txt) --address 0.0.0.0 5000:80  
+    
    } 
  
 }  
